@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 @RestController
@@ -28,19 +29,17 @@ public class MergerController {
     }
 
     @GetMapping
-    public MenuItem[] get() {
-        List<MenuItem> mergedMenu = new ArrayList<>();
-
-        MenuItem[] dinerMenu = dinerRepository.getTheMenu();
-        Collections.addAll(mergedMenu, dinerMenu);
-
-        MenuItem[] pancakeHouseMenu = pancakeHouseRepository.getTheMenu();
-        Collections.addAll(mergedMenu, pancakeHouseMenu);
-
-        mergedMenu.sort((item1, item2) -> item1.getName().compareToIgnoreCase(item2.getName()));
-
-        MenuItem[] mergedMenuArray = mergedMenu.toArray(new MenuItem[0]);
-
-        return mergedMenuArray;
+    public List<MenuItem> get() {
+         List<MenuItem> menuItems = new ArrayList<>();
+         Iterator lunchItems = dinerRepository.getTheMenuIterator();
+         while(lunchItems.hasNext()){
+             menuItems.add(lunchItems.next());
+         }
+         List<MenuItem> breakfastItems = pancakeHouseRepository.getTheMenu();
+         for (int i = 0; i < breakfastItems.size(); i++) {
+            menuItems.add(breakfastItems.get(i));
+        }
+        return menuItems;
     }
+
 }
