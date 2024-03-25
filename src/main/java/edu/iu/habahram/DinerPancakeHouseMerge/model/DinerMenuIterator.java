@@ -9,7 +9,7 @@ public class DinerMenuIterator implements Iterator {
 
     int position = 0;
 
-    public DinerMenuIterator(MenuItem[] menuItem){ this.MenuItems = menuItems;}
+    public DinerMenuIterator(MenuItem[] menuItem){ this.MenuItems = MenuItems;}
 
     public MenuItem next(){
         return null;
