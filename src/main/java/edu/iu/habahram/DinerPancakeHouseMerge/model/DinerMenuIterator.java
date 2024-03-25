@@ -11,13 +11,18 @@ public class DinerMenuIterator implements Iterator {
 
     public DinerMenuIterator(MenuItem[] menuItem){ this.MenuItems = MenuItems;}
 
-    public MenuItem next(){
-        return null;
+    public String next() {
+        String menuItem = MenuItems[position];
+        position = position + 1;
+        return menuItem;
     }
 
-    @Override
-    public boolean hasNext(){
-        if(position)
+    public boolean hasNext() {
+        if (position >= MenuItems.length || MenuItems[position] == null) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
 
