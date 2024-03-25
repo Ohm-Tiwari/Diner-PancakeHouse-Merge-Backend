@@ -9,5 +9,5 @@ public class PancakeHouseIterator extends Iterator {
 
     int position = 0;
 
-    public PancakeHouseIterator(MenuItem[] menuItem){ this.MenuItems = menuItems;}
+    public PancakeHouseIterator(MenuItem[] menuItem){ this.MenuItems = MenuItems;}
 }

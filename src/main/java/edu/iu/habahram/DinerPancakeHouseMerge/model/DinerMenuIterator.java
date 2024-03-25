@@ -17,9 +17,11 @@ public class DinerMenuIterator implements Iterator {
 
     @Override
     public boolean hasNext(){
-        if(position. )
+        if(position)
     }
 
+
+    @Override
     public void remove(){
         if(position <= 0){
             throw new IllegalArgumentException("Cannot remove item");

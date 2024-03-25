@@ -31,13 +31,13 @@ public class MergerController {
     @GetMapping
     public List<MenuItem> get() {
          List<MenuItem> menuItems = new ArrayList<>();
-         Iterator lunchItems = dinerRepository.getTheMenuIterator();
+         Iterator<MenuItem> lunchItems = dinerRepository.getTheMenuIterator();
          while(lunchItems.hasNext()){
              menuItems.add(lunchItems.next());
          }
-         List<MenuItem> breakfastItems = pancakeHouseRepository.getTheMenu();
-         for (int i = 0; i < breakfastItems.size(); i++) {
-            menuItems.add(breakfastItems.get(i));
+         List<MenuItem> breakfastItems = pancakeHouseRepository.getTheMenuIterator();
+         while(breakfastItems.hasNext()){
+            menuItems.add(breakfastItems.next());
         }
         return menuItems;
     }
