@@ -12,15 +12,9 @@ import java.util.Iterator;
 @Repository
 public class CafeRepository {
 
-    public MenuItem[] getTheMenu() {
-        CafeMenu cafeMenu = new CafeMenu();
-        return cafeMenu.getMenuItems();
-    }
-
-
     public Iterator<MenuItem> getTheMenuIterator() {
-        Menu cafeMenu = new CafeMenu();
-        return cafeMenu.createIterator();
+        Menu cafe = new CafeMenu();
+        return cafe.createIterator();
     }
 
 

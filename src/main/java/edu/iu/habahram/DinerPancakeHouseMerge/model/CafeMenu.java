@@ -4,9 +4,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class CafeMenu {
+public class CafeMenu implements Menu{
     HashMap<String, MenuItem> menuItems = new HashMap<String, MenuItem>();
-
 
     public CafeMenu() {
         addItem("Veggie Burger and Air Fries",
@@ -31,10 +30,9 @@ public class CafeMenu {
         return menuItems;
     }
 
-    public MenuItem[] getMenuItems() {
-        return menuItems;
+
+    @Override
+    public Iterator<MenuItem> createIterator() {
+        return menuItems.values().iterator();
     }
-
-
-
 }
