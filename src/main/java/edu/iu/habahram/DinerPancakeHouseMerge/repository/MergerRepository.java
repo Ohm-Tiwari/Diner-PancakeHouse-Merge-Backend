@@ -63,5 +63,29 @@ public class MergerRepository {
         return records;
     }
 
+    public List<MenuItemRecord> getLunch() {
+        DinerMenu dinerMenu = new DinerMenu("DINER MENU", "Lunch");
+        MenuItem[] lunchItems = dinerMenu.getItems();
+
+        List<MenuItemRecord> records = Arrays.stream(lunchItems)
+                .map(x -> new MenuItemRecord(x.getName(),
+                        x.getDescription(),
+                        x.isVegetarian(),
+                        x.getPrice())).toList();
+        return records;
+    }
+
+    public List<MenuItemRecord> getSupper() {
+        CafeMenu cafeMenu = new CafeMenu("CAFE MENU", "Dinner");
+        MenuItem[] dinnerItems = cafeMenu.getItems();
+
+        List<MenuItemRecord> records = Arrays.stream(dinnerItems)
+                .map(x -> new MenuItemRecord(x.getName(),
+                        x.getDescription(),
+                        x.isVegetarian(),
+                        x.getPrice())).toList();
+        return records;
+    }
+
 
 }

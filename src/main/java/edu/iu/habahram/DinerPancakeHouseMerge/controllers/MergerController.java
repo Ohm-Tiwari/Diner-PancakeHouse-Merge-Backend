@@ -40,13 +40,17 @@ public class MergerController {
     }
 
 
-//    @GetMapping("/lunch")
-//    public List<MenuItemRecord> lunch(){
-//        return null;
-//    }
+    @GetMapping("/lunch")
+    public List<MenuItemRecord> getLunch(){
+        List<MenuItemRecord> items = mergerRepository.getLunch();
+        return items;
+    }
 
-//    @GetMapping("/supper")
-//    public MenuItem supper(){
-//        return null;
-//    }
+    @GetMapping("/supper")
+    public List<MenuItemRecord> getSupper(){
+        List<MenuItemRecord> items = mergerRepository.getSupper();
+        return items;
+    }
+
+
 }
