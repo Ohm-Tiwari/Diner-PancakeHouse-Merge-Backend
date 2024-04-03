@@ -25,9 +25,4 @@ public class CafeMenu extends Menu{
         MenuItem menuItem = new MenuItem(name, description, vegetarian, price);
         add(menuItem);
     }
-
-
-
-
-
 }

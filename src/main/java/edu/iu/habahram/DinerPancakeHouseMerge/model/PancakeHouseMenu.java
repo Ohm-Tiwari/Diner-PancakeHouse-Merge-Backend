@@ -1,8 +1,10 @@
 package edu.iu.habahram.DinerPancakeHouseMerge.model;
 
 
+import java.util.Iterator;
 
 public class PancakeHouseMenu extends Menu {
+
 
 
     public PancakeHouseMenu(String name, String description) {
@@ -35,6 +37,9 @@ public class PancakeHouseMenu extends Menu {
         MenuItem menuItem = new MenuItem(name, description, vegetarian, price);
         add(menuItem);
     }
+
+
+
 }
 
 
