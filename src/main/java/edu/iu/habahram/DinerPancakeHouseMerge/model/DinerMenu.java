@@ -5,6 +5,7 @@ import java.util.Iterator;
 public class DinerMenu extends Menu{
 
 
+
     public DinerMenu(String name, String description) {
         super(name, description);
 
