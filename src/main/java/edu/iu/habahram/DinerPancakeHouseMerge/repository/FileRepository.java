@@ -16,16 +16,8 @@ import java.util.List;
 @Repository
 public class FileRepository {
     public FileRepository() {
-        File guitarsImagesDirectory = new File("data/images");
-        if(!guitarsImagesDirectory.exists()) {
-            guitarsImagesDirectory.mkdirs();
-        }
-        File guitarsAudioDirectory = new File("data/audio");
-        if(!guitarsAudioDirectory.exists()) {
-            guitarsAudioDirectory.mkdirs();
-        }
     }
-    private String IMAGES_FOLDER_PATH = "data/images/";
+
 
     private String USER_DATABASE_FILE = "data/userDatabase.txt";
     private static final String NEW_LINE = System.lineSeparator();
