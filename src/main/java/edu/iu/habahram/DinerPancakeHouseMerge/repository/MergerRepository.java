@@ -27,6 +27,15 @@ public class MergerRepository {
         return records;
     }
 
+    private MenuItemRecord createMenuItemRecord(MenuItem menuItem) {
+        return new MenuItemRecord(
+                menuItem.getName(),
+                menuItem.getDescription(),
+                menuItem.isVegetarian(),
+                menuItem.getPrice()
+        );
+    }
+
     public List<MenuItemRecord> getVeg() {
         MenuComponent allMenus = new Menu("ALL VEG MENUS", "All vegetarian combined");
         allMenus.add(new DinerMenu("DINER MENU", "Lunch"));
@@ -34,7 +43,8 @@ public class MergerRepository {
         allMenus.add(new CafeMenu("CAFE MENU", "Dinner"));
 
         List<MenuItemRecord> vegetarianItems = new ArrayList<>();
-        Iterator<MenuComponent> iterator = allMenus.createIterator();
+        CompositeIterator iterator = new CompositeIterator(allMenus.createIterator());
+
         while (iterator.hasNext()) {
             MenuComponent menuComponent = iterator.next();
             if (menuComponent.isVegetarian()) {
@@ -55,36 +65,32 @@ public class MergerRepository {
         PancakeHouseMenu pancakeHouseMenu = new PancakeHouseMenu("PANCAKE HOUSE MENU", "Breakfast");
         MenuItem[] breakfastItems = pancakeHouseMenu.getItems();
 
-        List<MenuItemRecord> records = Arrays.stream(breakfastItems)
-                .map(x -> new MenuItemRecord(x.getName(),
-                        x.getDescription(),
-                        x.isVegetarian(),
-                        x.getPrice())).toList();
-        return records;
+        return Arrays.stream(breakfastItems)
+                .map(this::createMenuItemRecord)
+                .toList();
     }
 
     public List<MenuItemRecord> getLunch() {
         DinerMenu dinerMenu = new DinerMenu("DINER MENU", "Lunch");
         MenuItem[] lunchItems = dinerMenu.getItems();
 
-        List<MenuItemRecord> records = Arrays.stream(lunchItems)
-                .map(x -> new MenuItemRecord(x.getName(),
-                        x.getDescription(),
-                        x.isVegetarian(),
-                        x.getPrice())).toList();
-        return records;
+        return Arrays.stream(lunchItems)
+                .map(this::createMenuItemRecord)
+                .toList();
     }
 
     public List<MenuItemRecord> getSupper() {
         CafeMenu cafeMenu = new CafeMenu("CAFE MENU", "Dinner");
         MenuItem[] dinnerItems = cafeMenu.getItems();
 
-        List<MenuItemRecord> records = Arrays.stream(dinnerItems)
-                .map(x -> new MenuItemRecord(x.getName(),
-                        x.getDescription(),
-                        x.isVegetarian(),
-                        x.getPrice())).toList();
-        return records;
+        return Arrays.stream(dinnerItems)
+                .map(this::createMenuItemRecord)
+                .toList();
+    }
+
+    public List signup(String username, String password){
+        return null;
+
     }
 
 
