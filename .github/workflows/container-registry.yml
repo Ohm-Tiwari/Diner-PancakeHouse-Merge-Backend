@@ -34,5 +34,5 @@ jobs:
       - name: Build and push the image
         run: |
           docker login --username ohmtiwari --password ${{secrets.ACCESS_TOKEN}} ghcr.io
-          docker build -t ghcr.io/ohm-tiwari/Diner-PancakeHouse-Merge:latest --file Dockerfile .  
-          docker push ghcr.io/ohm-tiwari/Diner-PancakeHouse-Merge:latest 
+          docker build -t ghcr.io/ohm-tiwari/diner-pancakehouse-merge:latest --file Dockerfile .  
+          docker push ghcr.io/ohm-tiwari/diner-pancakehouse-merge:latest 

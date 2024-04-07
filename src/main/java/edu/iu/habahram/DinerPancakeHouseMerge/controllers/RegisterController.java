@@ -36,24 +36,6 @@ public class RegisterController {
             throw new RuntimeException(e);
         }
     }
-    @GetMapping("/username")
-    public ResponseEntity<User> find(@PathVariable String username){
-        try{
-            User guitar = fileRepository.find(username);
-            if(guitar != null){
-                return ResponseEntity
-                        .status(HttpStatus.FOUND)
-                        .body(guitar);
-            } else {
-                return ResponseEntity
-                        .status(HttpStatus.NOT_FOUND)
-                        .body(null);
-            }
-        } catch (IOException e){
-            return ResponseEntity
-                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(null);
-        }
-    }
+
 
 }

@@ -1,6 +1,8 @@
 package edu.iu.habahram.DinerPancakeHouseMerge.repository;
 
+
 import edu.iu.habahram.DinerPancakeHouseMerge.model.User;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.io.File;
@@ -17,8 +19,6 @@ import java.util.List;
 public class FileRepository {
     public FileRepository() {
     }
-
-
     private String USER_DATABASE_FILE = "data/userDatabase.txt";
     private static final String NEW_LINE = System.lineSeparator();
 
@@ -37,22 +37,6 @@ public class FileRepository {
         System.out.println(data);
         appendToFile(path, data + NEW_LINE);
         return true;
-    }
-
-    public User find(String username) throws IOException {
-        List<User> users = findAll();
-        for (User user : users) {
-            if(user.username().equals(username)) {
-                String password = user.password();
-                if(user.password().equals(password)) {
-                    return user;
-                }
-                else {
-                    return null;
-                }
-            }
-        }
-        return null;
     }
 
     public List<User> findAll() throws IOException {
